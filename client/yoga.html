@@ -23,50 +23,127 @@
 
     header h1 {
       color: #ff004c;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
 
     .yoga-container {
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       padding: 30px;
     }
 
     .pose {
-      margin-bottom: 30px;
+      background-color: #1f1f1f;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 76, 0.4);
+      padding: 20px;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .pose:hover {
+      transform: scale(1.05);
     }
 
     .pose img {
-      max-width: 100%;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 0, 76, 0.7);
-    }
-
-    .pose-description {
-      font-size: 18px;
-      margin: 20px 0;
+      box-shadow: 0 0 15px rgba(255, 0, 76, 0.6);
     }
 
     .pose-title {
-      font-size: 24px;
+      font-size: 22px;
       color: #ff004c;
+      margin-top: 15px;
+      text-transform: uppercase;
+    }
+
+    .pose-description {
+      font-size: 16px;
+      color: #ccc;
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    /* Timer Styling */
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
     }
 
     .timer {
-      font-size: 28px;
-      margin: 20px 0;
+      width: 200px;
+      height: 200px;
+      background-color: #ff004c;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 36px;
+      font-weight: bold;
+      box-shadow: 0 0 30px rgba(255, 0, 76, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .start-button-container {
+      text-align: center;
+      margin-top: 30px;
     }
 
     .start-button {
       background-color: #ff004c;
       color: white;
-      padding: 10px 20px;
+      padding: 15px 30px;
       font-size: 18px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .start-button:hover {
       background-color: #ff00d0;
+      box-shadow: 0 0 10px rgba(255, 0, 208, 0.6);
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .pose {
+        max-width: 100%;
+      }
+
+      .timer {
+        width: 150px;
+        height: 150px;
+        font-size: 28px;
+      }
+
+      .start-button {
+        width: 100%;
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -79,37 +156,40 @@
     <!-- Pose 1: Mountain Pose -->
     <div class="pose">
       <h2 class="pose-title">Mountain Pose (Tadasana)</h2>
-      <img src="mountain-pose.jpg" alt="Mountain Pose">
-      <p class="pose-description">Stand tall with your feet together, shoulders relaxed, and weight evenly distributed through your feet.</p>
+      <img src="assets/tadasan.jpg" alt="Mountain Pose">
+      <p class="pose-description">Stand tall with feet together, arms by your sides, weight evenly distributed, and spine aligned.</p>
     </div>
 
-    <!-- Pose 2: Downward Dog -->
+    <!-- Pose 2: Upward Salute -->
     <div class="pose">
-      <h2 class="pose-title">Downward Facing Dog (Adho Mukha Svanasana)</h2>
-      <img src="downward-dog.jpg" alt="Downward Dog">
-      <p class="pose-description">Lift your hips and stretch your body into an inverted 'V' shape. Focus on your breathing.</p>
+      <h2 class="pose-title">Urdhva Hastasana (Upward Salute)</h2>
+      <img src="assets/urdhvahastasana.jpg" alt="Upward Salute">
+      <p class="pose-description">Raise your arms overhead, lengthening through your fingertips while keeping shoulders relaxed.</p>
     </div>
 
-    <!-- Pose 3: Warrior I -->
+    <!-- Pose 3: Warrior Pose -->
     <div class="pose">
-      <h2 class="pose-title">Warrior I (Virabhadrasana I)</h2>
-      <img src="warrior-pose.jpg" alt="Warrior I Pose">
-      <p class="pose-description">Step one foot forward and bend your knee, keeping your back leg straight. Reach your arms overhead and hold the pose.</p>
+      <h2 class="pose-title">Virabhadrasana (Warrior Pose)</h2>
+      <img src="assets/virabhadrasana.jpg" alt="Warrior Pose">
+      <p class="pose-description">Step back, bend the front knee, and reach arms overhead while squaring your hips forward.</p>
     </div>
 
-    <!-- Pose 4: Child's Pose -->
+    <!-- Pose 4: Raised Arms Pose -->
     <div class="pose">
-      <h2 class="pose-title">Child's Pose (Balasana)</h2>
-      <img src="child-pose.jpg" alt="Child's Pose">
-      <p class="pose-description">Rest your body on your knees and stretch your arms forward. Relax your entire body and breathe deeply.</p>
+      <h2 class="pose-title">Hasta Uttanasana (Raised Arms Pose)</h2>
+      <img src="assets/hastauttanasana.jpg" alt="Raised Arms Pose">
+      <p class="pose-description">Lift arms upward, arch your back gently, and engage your core while keeping legs strong.</p>
     </div>
+  </div>
 
-    <!-- Timer/Progress Bar -->
+  <!-- Timer/Start Button -->
+  <div class="timer-container">
     <div class="timer">
       <span id="time">2:00</span>
     </div>
+  </div>
 
-    <!-- Start Button -->
+  <div class="start-button-container">
     <button class="start-button" onclick="startTimer()">Start Warm-Up</button>
   </div>
 
