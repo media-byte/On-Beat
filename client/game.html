@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Game</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Game Container */
+        .game-container {
+            position: relative;
+            max-width: 700px;
+            margin: 20px auto;
+            border: 3px solid #ff004c;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 0, 76, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Score Bar */
+        .score-bar {
+            width: 100%;
+            background-color: #111;
+            color: #ff004c;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* 3D Model */
+        .model-viewer {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 76, 0.7);
+            position: relative;
+            background-color: #333; /* Background color while loading */
+        }
+
+        /* Preview Box */
+        .preview-box {
+            width: 150px;
+            background-color: #222;
+            color: #fff;
+            border: 2px solid #ff004c;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            top: 100px; /* Adjust top position */
+            text-align: center;
+        }
+
+        /* Animated Circle */
+        .beep-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #ff004c;
+            border-radius: 50%;
+            animation: beep 1s infinite alternate;
+            margin-top: 20px;
+        }
+
+        @keyframes beep {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Button to Start */
+        .start-button {
+            margin-top: 20px;
+            background-color: #ff004c;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .start-button:hover {
+            background-color: #ff00d0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="score-bar">Score: 0</div>
+        
+        <div class="model-viewer">
+            <!-- 3D model goes here -->
+            <img src="mikasa3.png" alt="3D Model" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div class="preview-box">
+            <h3>Next Step</h3>
+            <p>Step Name</p>
+            <p>Preview</p>
+        </div>
+
+        <div class="beep-circle"></div>
+        
+        <button class="start-button" onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            // Redirect to the game logic or another page
+            alert("Starting the game!"); // Replace this with actual game logic
+        }
+    </script>
+</body>
+</html>
