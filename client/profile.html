@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">OnBeat</div>
+        <div class="top-right">
+            <span class="streak">Streak: 0</span>
+        </div>
+        <div class="profile-button">
+            <img src="mikasa1.png" alt="Profile" onclick="window.location.href='profile.html'">
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="mikasa1.png" alt="Profile Image"> <!-- Replace with actual profile image -->
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="profile-options">
+                <button onclick="window.location.href='achievements.html'">Achievements</button>
+                <button onclick="window.location.href='settings.html'">Settings</button>
+                <button onclick="window.location.href='songs.html'">History</button>
+                <button onclick="window.location.href='index.html'">Sign Out</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <p>&copy; 2024 OnBeat</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

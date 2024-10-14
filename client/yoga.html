@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga Warm-Up</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      border-bottom: 2px solid #ff004c;
+    }
+
+    header h1 {
+      color: #ff004c;
+    }
+
+    .yoga-container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .pose {
+      margin-bottom: 30px;
+    }
+
+    .pose img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 76, 0.7);
+    }
+
+    .pose-description {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .pose-title {
+      font-size: 24px;
+      color: #ff004c;
+    }
+
+    .timer {
+      font-size: 28px;
+      margin: 20px 0;
+    }
+
+    .start-button {
+      background-color: #ff004c;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .start-button:hover {
+      background-color: #ff00d0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Yoga Warm-Up</h1>
+  </header>
+
+  <div class="yoga-container">
+    <!-- Pose 1: Mountain Pose -->
+    <div class="pose">
+      <h2 class="pose-title">Mountain Pose (Tadasana)</h2>
+      <img src="mountain-pose.jpg" alt="Mountain Pose">
+      <p class="pose-description">Stand tall with your feet together, shoulders relaxed, and weight evenly distributed through your feet.</p>
+    </div>
+
+    <!-- Pose 2: Downward Dog -->
+    <div class="pose">
+      <h2 class="pose-title">Downward Facing Dog (Adho Mukha Svanasana)</h2>
+      <img src="downward-dog.jpg" alt="Downward Dog">
+      <p class="pose-description">Lift your hips and stretch your body into an inverted 'V' shape. Focus on your breathing.</p>
+    </div>
+
+    <!-- Pose 3: Warrior I -->
+    <div class="pose">
+      <h2 class="pose-title">Warrior I (Virabhadrasana I)</h2>
+      <img src="warrior-pose.jpg" alt="Warrior I Pose">
+      <p class="pose-description">Step one foot forward and bend your knee, keeping your back leg straight. Reach your arms overhead and hold the pose.</p>
+    </div>
+
+    <!-- Pose 4: Child's Pose -->
+    <div class="pose">
+      <h2 class="pose-title">Child's Pose (Balasana)</h2>
+      <img src="child-pose.jpg" alt="Child's Pose">
+      <p class="pose-description">Rest your body on your knees and stretch your arms forward. Relax your entire body and breathe deeply.</p>
+    </div>
+
+    <!-- Timer/Progress Bar -->
+    <div class="timer">
+      <span id="time">2:00</span>
+    </div>
+
+    <!-- Start Button -->
+    <button class="start-button" onclick="startTimer()">Start Warm-Up</button>
+  </div>
+
+  <script>
+    function startTimer() {
+      var timeLeft = 120; // 2 minutes
+      var timerElement = document.getElementById('time');
+      
+      var countdown = setInterval(function() {
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        
+        // Format time
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        timerElement.textContent = minutes + ":" + seconds;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdown);
+          timerElement.textContent = "Time's Up!";
+        }
+
+        timeLeft -= 1;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
