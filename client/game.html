@@ -64,28 +64,20 @@
             border-radius: 10px;
             padding: 10px;
             position: absolute;
-            right: 20px;
-            top: 100px; /* Adjust top position */
+            right: 22px;
+            top: 90px; /* Adjust top position */
             text-align: center;
         }
 
-        /* Animated Circle */
-        .beep-circle {
-            width: 80px;
-            height: 80px;
-            background-color: #ff004c;
-            border-radius: 50%;
-            animation: beep 1s infinite alternate;
+        /* Replace Beep Circle with GIF */
+        .gif-container {
             margin-top: 20px;
         }
 
-        @keyframes beep {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.1);
-            }
+        .gif-container img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
         }
 
         /* Button to Start */
@@ -113,16 +105,20 @@
         
         <div class="model-viewer">
             <!-- 3D model goes here -->
-            <img src="mikasa3.png" alt="3D Model" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/mikasa4.png" alt="3D Model" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         
         <div class="preview-box">
             <h3>Next Step</h3>
-            <p>Step Name</p>
+            <img src="assets/mikasa5.png" alt="Next Step Image" style="width: 100px; height: auto; margin: 5px 0;"> <!-- Set width to 100px -->
             <p>Preview</p>
         </div>
+        
 
-        <div class="beep-circle"></div>
+        <!-- Replace Beep Circle with GIF -->
+        <div class="gif-container">
+            <img src="assets/circle.gif" alt="Beep Circle GIF">
+        </div>
         
         <button class="start-button" onclick="startGame()">Start Game</button>
     </div>
