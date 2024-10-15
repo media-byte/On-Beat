@@ -1,200 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OnBeat - Songs</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnBeat - Songs</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
 
-    /* Header Styling */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #111;
-      position: relative;
-    }
+      /* Header Styling */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #111;
+        position: relative;
+      }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ff004c;
-    }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff004c;
+      }
 
-    .top-right {
-      font-size: 18px;
-      color: #fff;
-    }
+      #logo {
+        text-decoration: none;
+        color: inherit;
+      }
 
-    .profile-button {
-      position: absolute;
-      right: 20px;
-      top: 10px;
-    }
+      .top-right {
+        font-size: 18px;
+        color: #fff;
+      }
 
-    .profile-button img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
+      .profile-button {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+      }
 
-    /* Main Styling */
-    main {
-      padding: 20px;
-      text-align: center;
-    }
+      .profile-button img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
 
-    .summary {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(255, 0, 76, 0.5);
-    }
+      /* Main Styling */
+      main {
+        padding: 20px;
+        text-align: center;
+      }
 
-    .summary h2 {
-      margin-bottom: 10px;
-      font-size: 26px;
-    }
+      .summary {
+        background-color: #222;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px rgba(255, 0, 76, 0.5);
+      }
 
-    .summary div {
-      font-size: 20px;
-      margin: 5px 0;
-    }
+      .summary h2 {
+        margin-bottom: 10px;
+        font-size: 26px;
+      }
 
-    /* Song History Styling */
-    .history {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+      .summary div {
+        font-size: 20px;
+        margin: 5px 0;
+      }
 
-    .song-card {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(255, 0, 76, 0.5);
-      width: 200px;
-      transition: transform 0.3s ease;
-    }
+      /* Song History Styling */
+      .history {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
 
-    .song-card:hover {
-      transform: scale(1.05);
-    }
+      .song-card {
+        background-color: #222;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(255, 0, 76, 0.5);
+        width: 200px;
+        transition: transform 0.3s ease;
+      }
 
-    .song-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 22px;
-      color: #ff004c;
-    }
+      .song-card:hover {
+        transform: scale(1.05);
+      }
 
-    .song-card div {
-      font-size: 18px;
-      margin: 5px 0;
-    }
+      .song-card h3 {
+        margin: 0 0 10px 0;
+        font-size: 22px;
+        color: #ff004c;
+      }
 
-    /* Footer Styling */
-    footer {
-      padding: 20px;
-      background-color: #111;
-      text-align: center;
-    }
+      .song-card div {
+        font-size: 18px;
+        margin: 5px 0;
+      }
 
-    footer ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 0;
-    }
+      /* Footer Styling */
+      footer {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
 
-    footer ul li a {
-      text-decoration: none;
-      color: #fff;
-    }
+      footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 0;
+      }
 
-    footer ul li a:hover {
-      color: #ff004c;
-    }
+      footer ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
 
-    footer p {
-      margin-top: 10px;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">OnBeat</div>
-    <div class="top-right">
-      <span class="streak">Streak: 0</span>
-    </div>
-  </header>
+      footer ul li a:hover {
+        color: #ff004c;
+      }
 
-  <main>
-    <div class="summary">
-      <h2>Total Dance Stats</h2>
-      <div>Total Dance Steps: 150</div>
-      <div>Total Time Taken: 120 min</div>
-      <div>Total Calories Burned: 800 kcal</div>
-      <div>Total Points Gained: 1500</div>
-    </div>
-
-    <h2>Song History</h2>
-    <div class="history">
-      <div class="song-card">
-        <h3>Dance Monkey</h3>
-        <div>Time Taken: 15 min</div>
-        <div>Calories Burned: 100 kcal</div>
-        <div>Points Gained: 200</div>
+      footer p {
+        margin-top: 10px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a id="logo" href="index.html">OnBeat</a>
       </div>
-      <div class="song-card">
-        <h3>Blinding Lights</h3>
-        <div>Time Taken: 12 min</div>
-        <div>Calories Burned: 90 kcal</div>
-        <div>Points Gained: 180</div>
+      <div class="top-right">
+        <span class="streak">Streak: 0</span>
       </div>
-      <div class="song-card">
-        <h3>Savage Love</h3>
-        <div>Time Taken: 10 min</div>
-        <div>Calories Burned: 80 kcal</div>
-        <div>Points Gained: 160</div>
-      </div>
-      <div class="song-card">
-        <h3>Peaches</h3>
-        <div>Time Taken: 18 min</div>
-        <div>Calories Burned: 110 kcal</div>
-        <div>Points Gained: 220</div>
-      </div>
-      <div class="song-card">
-        <h3>Levitating</h3>
-        <div>Time Taken: 20 min</div>
-        <div>Calories Burned: 120 kcal</div>
-        <div>Points Gained: 240</div>
-      </div>
-    </div>
-  </main>
+    </header>
 
-  <footer>
-    <ul>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-    <p>&copy; 2024 OnBeat</p>
-  </footer>
+    <main>
+      <div class="summary">
+        <h2>Total Dance Stats</h2>
+        <div>Total Dance Steps: 150</div>
+        <div>Total Time Taken: 120 min</div>
+        <div>Total Calories Burned: 800 kcal</div>
+        <div>Total Points Gained: 1500</div>
+      </div>
 
-  <script src="main.js"></script>
-</body>
+      <h2>Song History</h2>
+      <div class="history">
+        <div class="song-card">
+          <h3>Dance Monkey</h3>
+          <div>Time Taken: 15 min</div>
+          <div>Calories Burned: 100 kcal</div>
+          <div>Points Gained: 200</div>
+        </div>
+        <div class="song-card">
+          <h3>Blinding Lights</h3>
+          <div>Time Taken: 12 min</div>
+          <div>Calories Burned: 90 kcal</div>
+          <div>Points Gained: 180</div>
+        </div>
+        <div class="song-card">
+          <h3>Savage Love</h3>
+          <div>Time Taken: 10 min</div>
+          <div>Calories Burned: 80 kcal</div>
+          <div>Points Gained: 160</div>
+        </div>
+        <div class="song-card">
+          <h3>Peaches</h3>
+          <div>Time Taken: 18 min</div>
+          <div>Calories Burned: 110 kcal</div>
+          <div>Points Gained: 220</div>
+        </div>
+        <div class="song-card">
+          <h3>Levitating</h3>
+          <div>Time Taken: 20 min</div>
+          <div>Calories Burned: 120 kcal</div>
+          <div>Points Gained: 240</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <p>&copy; 2024 OnBeat</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
 </html>
