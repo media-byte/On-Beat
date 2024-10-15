@@ -7,20 +7,16 @@
     <title>OnBeat</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* Add any required styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #140202;
-            /* Background color */
-            color: #333;
-            /* Text color */
+            color: #fff;
         }
 
         header {
             background-color: #140202;
-            /* Header background color */
             padding: 15px;
             display: flex;
             justify-content: space-between;
@@ -30,6 +26,7 @@
         .logo {
             font-size: 24px;
             color: #fff;
+            font-weight: bold;
         }
 
         .top-right {
@@ -41,36 +38,27 @@
             border-radius: 50%;
             background-color: #ff004c;
             display: block;
-            margin: 0 auto 20px;
             box-shadow: 0 0 15px rgba(255, 0, 76, 0.6);
             transition: box-shadow 0.3s ease-in-out;
             width: 70px;
             height: 70px;
             object-fit: cover;
             cursor: pointer;
-            /* Hand cursor on hover */
         }
 
         .profile-button img:hover {
             box-shadow: 0 0 20px rgba(255, 0, 76, 0.8);
-            /* Increase shadow on hover */
         }
 
-
-
         .game-container {
-            position: relative;
             text-align: center;
             margin: 50px auto;
-            /* Centering the game container */
             width: 80%;
-            /* Responsive width */
             max-width: 600px;
-            /* Limit max width */
         }
 
         .swipe-button {
-            /* Button color */
+            background-color: #ff004c;
             color: #fff;
             border: none;
             padding: 15px 30px;
@@ -80,21 +68,17 @@
             margin: 20px 0;
             transition: background-color 0.3s ease;
             display: inline-block;
-            /* Center the button */
         }
 
         .swipe-button:hover {
             background-color: #ff00d0;
-            /* Hover color */
         }
 
-        .model-viewer img {
+        .model-viewer {
             width: 100%;
-            /* Adjust as needed */
             max-width: 400px;
-            /* Limit max width */
             border-radius: 15px;
-            /* Rounded corners */
+            margin: 0 auto;
         }
 
         .controls {
@@ -103,11 +87,24 @@
             margin-top: 20px;
         }
 
+        .controls button {
+            background-color: #ff004c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #ff00d0;
+        }
+
         footer {
             background-color: #333;
-            /* Footer background color */
             color: #fff;
-            /* Footer text color */
             text-align: center;
             padding: 15px 0;
             position: relative;
@@ -127,10 +124,11 @@
 
         footer ul li a {
             color: #fff;
-            /* Footer link color */
             text-decoration: none;
         }
     </style>
+    <!-- Add the model-viewer library -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -147,9 +145,10 @@
     <main>
         <div class="game-container">
             <button class="swipe-button" onclick="window.location.href='game.html'">Swipe to Start</button>
-            <div class="model-viewer">
-                <img src="mikasa3.png" alt="3D Model" />
-            </div>
+
+            <!-- Updated the model source to women.glb -->
+            <model-viewer class="model-viewer" src="women.glb" alt="3D Model" auto-rotate camera-controls></model-viewer>
+
             <div class="controls">
                 <div class="left-controls">
                     <button onclick="window.location.href='events.html'">Events</button>
@@ -170,6 +169,7 @@
         </ul>
         <p>&copy; 2024 OnBeat</p>
     </footer>
+
     <script src="main.js"></script>
 </body>
 
