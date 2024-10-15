@@ -1,176 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OnBeat</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* Add any required styles here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #140202;
-            /* Background color */
-            color: #333;
-            /* Text color */
-        }
+      /* Add any required styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #140202;
+        /* Background color */
+        color: #333;
+        /* Text color */
+      }
 
-        header {
-            background-color: #140202;
-            /* Header background color */
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      header {
+        background-color: #140202;
+        /* Header background color */
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo {
-            font-size: 24px;
-            color: #fff;
-        }
+      .logo {
+        font-size: 24px;
+        color: #fff;
+      }
 
-        .top-right {
-            font-size: 18px;
-            color: #fff;
-        }
+      #logo {
+        text-decoration: none;
+        color: inherit;
+      }
 
-        .profile-button img {
-            border-radius: 50%;
-            background-color: #ff004c;
-            display: block;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 15px rgba(255, 0, 76, 0.6);
-            transition: box-shadow 0.3s ease-in-out;
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            cursor: pointer;
-            /* Hand cursor on hover */
-        }
+      .top-right {
+        font-size: 18px;
+        color: #fff;
+      }
 
-        .profile-button img:hover {
-            box-shadow: 0 0 20px rgba(255, 0, 76, 0.8);
-            /* Increase shadow on hover */
-        }
+      .profile-button img {
+        border-radius: 50%;
+        background-color: #ff004c;
+        display: block;
+        margin: 0 auto 20px;
+        box-shadow: 0 0 15px rgba(255, 0, 76, 0.6);
+        transition: box-shadow 0.3s ease-in-out;
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        cursor: pointer;
+        /* Hand cursor on hover */
+      }
 
+      .profile-button img:hover {
+        box-shadow: 0 0 20px rgba(255, 0, 76, 0.8);
+        /* Increase shadow on hover */
+      }
 
+      .game-container {
+        position: relative;
+        text-align: center;
+        margin: 50px auto;
+        /* Centering the game container */
+        width: 80%;
+        /* Responsive width */
+        max-width: 600px;
+        /* Limit max width */
+      }
 
-        .game-container {
-            position: relative;
-            text-align: center;
-            margin: 50px auto;
-            /* Centering the game container */
-            width: 80%;
-            /* Responsive width */
-            max-width: 600px;
-            /* Limit max width */
-        }
+      .swipe-button {
+        /* Button color */
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 10px;
+        margin: 20px 0;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        /* Center the button */
+      }
 
-        .swipe-button {
-            /* Button color */
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 10px;
-            margin: 20px 0;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            /* Center the button */
-        }
+      .swipe-button:hover {
+        background-color: #ff00d0;
+        /* Hover color */
+      }
 
-        .swipe-button:hover {
-            background-color: #ff00d0;
-            /* Hover color */
-        }
+      .model-viewer img {
+        width: 100%;
+        /* Adjust as needed */
+        max-width: 400px;
+        /* Limit max width */
+        border-radius: 15px;
+        /* Rounded corners */
+      }
 
-        .model-viewer img {
-            width: 100%;
-            /* Adjust as needed */
-            max-width: 400px;
-            /* Limit max width */
-            border-radius: 15px;
-            /* Rounded corners */
-        }
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
 
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+      footer {
+        background-color: #333;
+        /* Footer background color */
+        color: #fff;
+        /* Footer text color */
+        text-align: center;
+        padding: 15px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
 
-        footer {
-            background-color: #333;
-            /* Footer background color */
-            color: #fff;
-            /* Footer text color */
-            text-align: center;
-            padding: 15px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+      footer ul {
+        list-style: none;
+        padding: 0;
+      }
 
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
+      footer ul li {
+        display: inline;
+        margin: 0 15px;
+      }
 
-        footer ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        footer ul li a {
-            color: #fff;
-            /* Footer link color */
-            text-decoration: none;
-        }
+      footer ul li a {
+        color: #fff;
+        /* Footer link color */
+        text-decoration: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">OnBeat</div>
-        <div class="top-right">
-            <span class="streak">Streak: 0</span>
-        </div>
-        <div class="profile-button" onclick="window.location.href='profile.html'">
-            <img src="mikasa1.png" alt="Profile" />
-        </div>
+      <div class="logo">
+        <a id="logo" href="index.html">OnBeat</a>
+      </div>
+      <div class="top-right">
+        <span class="streak">Streak: 0</span>
+      </div>
+      <div class="profile-button" onclick="window.location.href='profile.html'">
+        <img src="mikasa1.png" alt="Profile" />
+      </div>
     </header>
 
     <main>
-        <div class="game-container">
-            <button class="swipe-button" onclick="window.location.href='game.html'">Swipe to Start</button>
-            <div class="model-viewer">
-                <img src="mikasa3.png" alt="3D Model" />
-            </div>
-            <div class="controls">
-                <div class="left-controls">
-                    <button onclick="window.location.href='events.html'">Events</button>
-                    <button onclick="window.location.href='yoga.html'">Yoga</button>
-                </div>
-                <div class="right-controls">
-                    <button onclick="window.location.href='songs.html'">Songs</button>
-                    <button onclick="window.location.href='learning.html'">Learning</button>
-                </div>
-            </div>
+      <div class="game-container">
+        <button class="swipe-button" onclick="window.location.href='game.html'">
+          Swipe to Start
+        </button>
+        <div class="model-viewer">
+          <img src="mikasa3.png" alt="3D Model" />
         </div>
+        <div class="controls">
+          <div class="left-controls">
+            <button onclick="window.location.href='events.html'">Events</button>
+            <button onclick="window.location.href='yoga.html'">Yoga</button>
+          </div>
+          <div class="right-controls">
+            <button onclick="window.location.href='songs.html'">Songs</button>
+            <button onclick="window.location.href='learning.html'">
+              Learning
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
-        <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-        <p>&copy; 2024 OnBeat</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <p>&copy; 2024 OnBeat</p>
     </footer>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>

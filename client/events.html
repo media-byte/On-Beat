@@ -1,251 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Page - OnBeat</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1, h2, h3 {
-      color: #ff004c;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* Header Styling */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #111;
-      border-bottom: 2px solid #ff004c;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #ff004c;
-    }
-
-    /* Countdown Timer */
-    .countdown {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 24px;
-    }
-
-    #timer {
-      font-size: 28px;
-      color: #ff004c;
-      margin-top: 10px;
-    }
-
-    /* Event Highlights */
-    .event-highlight {
-      margin: 40px 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .highlight-card {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      max-width: 300px;
-      margin: 0 10px;
-      border: 2px solid #ff004c;
-    }
-
-    .highlight-card img {
-      width: 100%; /* Maintain responsive size */
-      height: 200px; /* Fixed height */
-      object-fit: cover; /* Maintain aspect ratio */
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .highlight-card button {
-      background-color: #ff004c;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    .highlight-card button:hover {
-      background-color: #ff00d0;
-    }
-
-    /* Event List */
-    .event-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .event-card {
-      background-color: #111;
-      border-radius: 15px;
-      padding: 20px;
-      max-width: 250px;
-      text-align: center;
-      border: 2px solid #ff004c;
-    }
-
-    .event-card img {
-      width: 100%; /* Maintain responsive size */
-      height: 200px; /* Fixed height */
-      object-fit: cover; /* Maintain aspect ratio */
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .event-card button {
-      background-color: #ff004c;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    .event-card button:hover {
-      background-color: #ff00d0;
-    }
-
-    /* Past Events Gallery */
-    .past-events {
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .gallery img {
-      width: 200px; /* Fixed width */
-      height: 150px; /* Fixed height */
-      object-fit: cover; /* Maintain aspect ratio */
-      border-radius: 10px;
-    }
-
-    /* Live Stream Section */
-    .live-stream {
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    iframe {
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-
-    /* Icon Styling */
-    .event-card p i {
-      margin-right: 8px; /* Adds space between icon and text */
-      color: #ff004c;    /* Changes the icon color to match your theme */
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="logo">OnBeat</div>
-  </header>
-
-  <!-- Countdown Timer -->
-  <div class="countdown">
-    <h2>Next Event: Dance Battle</h2>
-    <div id="timer"></div>
-  </div>
-
-  <!-- JavaScript for Countdown Timer -->
-  <script>
-    let eventDate = new Date('Oct 20, 2024 10:00:00').getTime();
-    let timer = setInterval(function() {
-      let now = new Date().getTime();
-      let distance = eventDate - now;
-      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById('timer').innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById('timer').innerHTML = "Event Started";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Page - OnBeat</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
       }
-    }, 1000);
-  </script>
 
-  <!-- Event Highlights Section -->
-  <div class="event-highlight">
-    <div class="highlight-card">
-      <img src="assets/dancebattle.jpg" alt="Dance Battle Event">
-      <h3>Dance Battle</h3>
-      <button>Register Now</button>
-    </div>
-    <div class="highlight-card">
-      <img src="assets/yoga.avif" alt="Yoga Workshop Event">
-      <h3>Yoga Workshop</h3>
-      <button>Join Now</button>
-    </div>
-  </div>
+      h1,
+      h2,
+      h3 {
+        color: #ff004c;
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-  <!-- Event List Section -->
-  <h2>Upcoming Events</h2>
-  <div class="event-list">
-    <div class="event-card">
-      <img src="assets/tournament.jpg" alt="Event 1">
-      <h3>Dance Tournament</h3>
-      <p><i class="fas fa-calendar-alt"></i> Date: Oct 22, 2024</p>
-      <p><i class="fas fa-map-marker-alt"></i> Location: Central Stadium</p>
-      <button>Register Now</button>
-    </div>
-    <div class="event-card">
-      <img src="assets/challenge.png" alt="Event 2">
-      <h3>Yoga Challenge</h3>
-      <p><i class="fas fa-calendar-alt"></i> Date: Oct 25, 2024</p>
-      <p><i class="fas fa-map-marker-alt"></i> Location: Green Park</p>
-      <button>Join Now</button>
-    </div>
-  </div>
+      /* Header Styling */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #111;
+        border-bottom: 2px solid #ff004c;
+      }
 
-  <!-- Past Events Section -->
-  <div class="past-events">
-    <h2>Past Events</h2>
-    <div class="gallery">
-      <img src="assets/tournament.jpg" alt="Past Event 1">
-      <img src="assets/yoga.avif" alt="Past Event 2">
-      <img src="assets/dancebattle.jpg" alt="Past Event 3">
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ff004c;
+      }
+
+      #logo {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Countdown Timer */
+      .countdown {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 24px;
+      }
+
+      #timer {
+        font-size: 28px;
+        color: #ff004c;
+        margin-top: 10px;
+      }
+
+      /* Event Highlights */
+      .event-highlight {
+        margin: 40px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .highlight-card {
+        background-color: #111;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 300px;
+        margin: 0 10px;
+        border: 2px solid #ff004c;
+      }
+
+      .highlight-card img {
+        width: 100%; /* Maintain responsive size */
+        height: 200px; /* Fixed height */
+        object-fit: cover; /* Maintain aspect ratio */
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .highlight-card button {
+        background-color: #ff004c;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      .highlight-card button:hover {
+        background-color: #ff00d0;
+      }
+
+      /* Event List */
+      .event-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .event-card {
+        background-color: #111;
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 250px;
+        text-align: center;
+        border: 2px solid #ff004c;
+      }
+
+      .event-card img {
+        width: 100%; /* Maintain responsive size */
+        height: 200px; /* Fixed height */
+        object-fit: cover; /* Maintain aspect ratio */
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .event-card button {
+        background-color: #ff004c;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      .event-card button:hover {
+        background-color: #ff00d0;
+      }
+
+      /* Past Events Gallery */
+      .past-events {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        width: 200px; /* Fixed width */
+        height: 150px; /* Fixed height */
+        object-fit: cover; /* Maintain aspect ratio */
+        border-radius: 10px;
+      }
+
+      /* Live Stream Section */
+      .live-stream {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      iframe {
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      /* Icon Styling */
+      .event-card p i {
+        margin-right: 8px; /* Adds space between icon and text */
+        color: #ff004c; /* Changes the icon color to match your theme */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a id="logo" href="index.html">OnBeat</a>
+      </div>
+    </header>
+
+    <!-- Countdown Timer -->
+    <div class="countdown">
+      <h2>Next Event: Dance Battle</h2>
+      <div id="timer"></div>
     </div>
-  </div>
 
-  <!-- Live Stream Section -->
-  <div class="live-stream">
-    <h2>Live Stream</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=K4TOrB7at0Y" frameborder="0" allowfullscreen></iframe>
-  </div>
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+      let eventDate = new Date("Oct 20, 2024 10:00:00").getTime();
+      let timer = setInterval(function () {
+        let now = new Date().getTime();
+        let distance = eventDate - now;
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("timer").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        if (distance < 0) {
+          clearInterval(timer);
+          document.getElementById("timer").innerHTML = "Event Started";
+        }
+      }, 1000);
+    </script>
 
-</body>
+    <!-- Event Highlights Section -->
+    <div class="event-highlight">
+      <div class="highlight-card">
+        <img src="assets/dancebattle.jpg" alt="Dance Battle Event" />
+        <h3>Dance Battle</h3>
+        <button>Register Now</button>
+      </div>
+      <div class="highlight-card">
+        <img src="assets/yoga.avif" alt="Yoga Workshop Event" />
+        <h3>Yoga Workshop</h3>
+        <button>Join Now</button>
+      </div>
+    </div>
+
+    <!-- Event List Section -->
+    <h2>Upcoming Events</h2>
+    <div class="event-list">
+      <div class="event-card">
+        <img src="assets/tournament.jpg" alt="Event 1" />
+        <h3>Dance Tournament</h3>
+        <p><i class="fas fa-calendar-alt"></i> Date: Oct 22, 2024</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: Central Stadium</p>
+        <button>Register Now</button>
+      </div>
+      <div class="event-card">
+        <img src="assets/challenge.png" alt="Event 2" />
+        <h3>Yoga Challenge</h3>
+        <p><i class="fas fa-calendar-alt"></i> Date: Oct 25, 2024</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: Green Park</p>
+        <button>Join Now</button>
+      </div>
+    </div>
+
+    <!-- Past Events Section -->
+    <div class="past-events">
+      <h2>Past Events</h2>
+      <div class="gallery">
+        <img src="assets/tournament.jpg" alt="Past Event 1" />
+        <img src="assets/yoga.avif" alt="Past Event 2" />
+        <img src="assets/dancebattle.jpg" alt="Past Event 3" />
+      </div>
+    </div>
+
+    <!-- Live Stream Section -->
+    <div class="live-stream">
+      <h2>Live Stream</h2>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/watch?v=K4TOrB7at0Y"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
 </html>
