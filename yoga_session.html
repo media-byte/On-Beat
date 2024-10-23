@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yoga Session</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #140202;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        background-color: #ff004c;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 20px;
+        width: 80%;
+      }
+
+      /* Webcam Section */
+      .webcam-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #cam-live {
+        width: 100%;
+        max-width: 500px;
+        border: 5px solid #ff004c;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .webcam-controls {
+        margin-top: 10px;
+      }
+
+      .webcam-controls input {
+        background-color: #ff004c;
+        color: white;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 24px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .webcam-controls input:hover {
+        background-color: #ff004c;
+      }
+
+      .webcam-controls input:disabled {
+        background-color: #b0b0b0;
+        cursor: not-allowed;
+      }
+
+      /* Mocap Section */
+      .mocap-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .mocap-placeholder {
+        width: 100%;
+        max-width: 500px;
+        height: 280px;
+        background-color: #161111;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        color: #666;
+        border: 2px dashed #ff004c;
+        margin: 10px 0;
+      }
+
+      /* Add img styles to ensure they fit well within the placeholder */
+      .mocap-placeholder img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+
+      /* Start Button */
+      .start-button-container {
+        margin-top: 30px;
+      }
+
+      .start-button {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      .start-button:hover {
+        background-color: #e64a19;
+      }
+
+      .start-button:active {
+        background-color: #d84315;
+        box-shadow: none;
+      }
+
+      /* Results Section */
+      .results-section {
+        margin-top: 30px;
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+        background-color: #fff5f8;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: #333;
+      }
+
+      .results-section h2 {
+        color: #ff004c;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .webcam-section,
+        .mocap-section {
+          width: 100%;
+        }
+
+        #cam-live,
+        .mocap-placeholder {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Yoga Session</h1>
+    </header>
+
+    <div class="container">
+      <!-- Webcam Section -->
+      <div class="webcam-section">
+        <video id="cam-live" autoplay></video>
+        <div class="webcam-controls">
+          <input
+            type="button"
+            id="cam-take"
+            class="material-icons"
+            value="photo_camera"
+            onclick="webcam.take()"
+            disabled
+          />
+          <input
+            type="button"
+            id="cam-save"
+            class="material-icons"
+            value="download"
+            onclick="webcam.save()"
+            disabled
+          />
+          <input
+            type="button"
+            id="cam-upload"
+            class="material-icons"
+            value="upload"
+            onclick="webcam.upload()"
+            disabled
+          />
+        </div>
+      </div>
+
+      <!-- Mocap Section Placeholder -->
+      <div class="mocap-section">
+        <div class="mocap-placeholder">
+          <img src="assets/image1.png" alt="" />
+        </div>
+        <div class="mocap-placeholder">
+          <img src="assets/image2.png" alt="" />
+        </div>
+        <div class="mocap-placeholder">
+          <img src="assets/image3.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="start-button-container">
+      <button class="start-button" onclick="startYoga()">Start Yoga</button>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="results-section" style="display:none;">
+      <h2>Results</h2>
+      <p id="result-accuracy"></p>
+      <p id="result-error"></p>
+      <p id="result-message"></p>
+    </div>
+
+    <script>
+      var webcam = {
+        hVid: null,
+        init: () => {
+          navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then((stream) => {
+              webcam.hVid = document.getElementById("cam-live");
+              webcam.hVid.srcObject = stream;
+              document.getElementById("cam-take").disabled = false;
+              document.getElementById("cam-save").disabled = false;
+              document.getElementById("cam-upload").disabled = false;
+
+              // Automatically capture and upload after 10 seconds
+              setTimeout(() => {
+                webcam.take();
+                webcam.upload();
+                displayResults(); // Display results after capturing and uploading
+              }, 10000); // 10 seconds delay
+            })
+            .catch((err) => console.error(err));
+        },
+        snap: () => {
+          let cv = document.createElement("canvas"),
+            cx = cv.getContext("2d");
+
+          cv.width = webcam.hVid.videoWidth;
+          cv.height = webcam.hVid.videoHeight;
+          cx.drawImage(
+            webcam.hVid,
+            0,
+            0,
+            webcam.hVid.videoWidth,
+            webcam.hVid.videoHeight
+          );
+          return cv;
+        },
+        take: () => {
+          let snapsDiv = document.getElementById("cam-snaps");
+          if (!snapsDiv) {
+            snapsDiv = document.createElement("div");
+            snapsDiv.id = "cam-snaps";
+            document.body.appendChild(snapsDiv);
+          }
+          snapsDiv.appendChild(webcam.snap());
+        },
+        save: () => {
+          let cv = webcam.snap(),
+            a = document.createElement("a");
+          a.href = cv.toDataURL("image/png");
+          a.download = "snap.png";
+          a.click();
+          a.remove();
+          cv.remove();
+        },
+        upload: () => {
+          let cv = webcam.snap();
+          cv.toBlob(
+            (blob) => {
+              var data = new FormData();
+              data.append("image", blob, "snap.jpg");
+
+              fetch("/upload", {
+                method: "POST",
+                body: data,
+              })
+                .then((res) => res.json())
+                .then((json) => {
+                  alert("Upload successful: " + json.message);
+                });
+            },
+            "image/jpeg",
+            0.95
+          );
+        },
+      };
+
+      // Function to start yoga session (captures and uploads)
+      function startYoga() {
+        webcam.init();
+      }
+
+      // Display results on the page
+      function displayResults() {
+        const accuracy = (Math.random() * 100).toFixed(2);
+        const errorMargin = (100 - accuracy).toFixed(2);
+        const errorPercentage = (errorMargin * 10).toFixed(2);
+
+        const motivationalMessages = [
+          "Keep going! You're almost there!",
+          "Great work! Just a little more practice!",
+          "Fantastic effort! Keep it up!",
+        ];
+
+        const motivationalMessage =
+          motivationalMessages[
+            Math.floor(Math.random() * motivationalMessages.length)
+          ];
+
+        // Show the results section and update its content
+        document.getElementById("results-section").style.display = "block";
+        document.getElementById("result-accuracy").textContent =
+          "Accuracy: " + accuracy + "%";
+        document.getElementById("result-error").textContent =
+          "Error Margin: " + errorMargin + "% (Error Percentage: " +
+          errorPercentage +
+          "%)";
+        document.getElementById("result-message").textContent =
+          "Message: " + motivationalMessage;
+      }
+    </script>
+  </body>
+</html>

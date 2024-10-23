@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1a1a1a, #000000);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .login-container {
+        background: rgba(30, 30, 30, 0.8);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        width: 400px;
+        text-align: center;
+        position: relative;
+        animation: slideIn 0.5s ease forwards;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #ff004c;
+        font-size: 28px;
+        text-transform: uppercase;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 16px;
+        transition: background 0.3s ease;
+      }
+
+      input:focus {
+        background: rgba(255, 255, 255, 0.2);
+        outline: none;
+      }
+
+      .login-button {
+        background: linear-gradient(135deg, #ff004c, #ff0088);
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background 0.4s ease, transform 0.3s ease;
+        width: 100%;
+      }
+
+      .login-button:hover {
+        background: linear-gradient(135deg, #ff0088, #ff00d0);
+        transform: translateY(-3px);
+      }
+
+      .login-button:active {
+        transform: translateY(0);
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .login-container {
+          width: 90%;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <div id="output"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Replace with your actual authentication logic
+          const isAuthenticated = await authenticateUser(email, password);
+
+          if (isAuthenticated) {
+            // Redirect to home page after successful login
+            window.location.href = "index.html";
+          } else {
+            alert("Invalid email or password");
+          }
+        });
+
+      // Mock function for user authentication
+      async function authenticateUser(email, password) {
+        // Replace this with actual API call for user authentication
+        return email === "onbeat@gmail.com" && password === "password"; // Example condition
+      }
+    </script>
+  </body>
+</html>

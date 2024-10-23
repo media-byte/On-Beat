@@ -1,0 +1,275 @@
+/* General Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1c1c1c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ff3366;
+}
+
+#logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-right {
+  color: #ff3366;
+  font-size: 18px;
+}
+
+/* Main Styles */
+main {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #1c1c1c;
+}
+
+.game-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid #ff3366;
+  padding: 40px;
+  border-radius: 15px;
+  background-color: #141414;
+  box-shadow: 0 10px 30px rgba(255, 51, 102, 0.3);
+}
+
+.swipe-text {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  animation: bounce 1s infinite alternate;
+  color: #ff3366;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.model-viewer img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+}
+
+/* Button Styles */
+button {
+  background-color: #ff3366;
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e02555;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+}
+
+/* Footer Styling */
+footer {
+  padding: 30px;
+  background-color: #141414;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #ff3366;
+}
+
+footer p {
+  margin-top: 15px;
+  color: #888;
+}
+
+/* Animated Circle */
+.animated-circle {
+  width: 70px;
+  height: 70px;
+  border: 6px solid #ff3366;
+  border-radius: 50%;
+  animation: beep 1.2s infinite;
+  margin: 20px auto;
+}
+
+@keyframes beep {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  width: 85%;
+  max-width: 500px;
+}
+
+.modal h2 {
+  color: #ff3366;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.modal p {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.modal-close {
+  background-color: #ff3366;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-close:hover {
+  background-color: #e02555;
+}
+
+/* Container Layout Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin: 10px;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #e0e0e0;
+}
+
+.card iframe {
+  width: 100%;
+  height: 120px;
+  border: none;
+  border-radius: 8px;
+}
+
+h3 {
+  margin-bottom: 15px;
+  color: #ff3366;
+  font-size: 24px;
+}
+
+p {
+  color: #ccc;
+  font-size: 15px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  .swipe-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  footer ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
